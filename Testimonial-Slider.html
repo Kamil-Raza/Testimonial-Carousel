@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+
+        @media only screen and (max-width: 768px) { 
+        .container {
+            flex-direction: column;
+            gap: 20px !important;
+        }
+        .testimonial-header {
+            margin-bottom: 2rem !important;
+        }
+        }
+
+        @media only screen and (max-width: 992px) {
+        .container {
+            flex-direction: column;
+            gap: 20px !important;
+        } 
+        .custom-nav {
+            display: flex;
+            gap: 1rem;
+            margin-top: 50px !important;
+        }
+        }
+
+
+        .container {
+            /* max-width: 1200px; */
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            gap: 60px;
+            width: 100%;
+            overflow: hidden;            
+        }
+
+        .testimonial-header {
+            margin-bottom: 4rem;
+            min-width: 28%;
+        }
+
+        .testimonial-header h2 {
+            font-size: 76px;
+            font-weight: 300;
+            line-height: 91.2px;
+            margin-bottom: 20px;
+            font-family: Chronicle Display;
+        }
+
+        .testimonial-header p {
+            color: #555555;
+            font-size: 24px;
+            font-family: Chronicle Display;
+            line-height: 36px;
+            font-weight: 300;
+        }
+
+        .testimonial-item {
+            /* max-width: 800px; */
+            padding: 1rem;
+        }
+
+        .quote-mark {
+            font-size: 4rem;
+            color: #e5e5e5;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: #555555;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            font-family: Chronicle Display;
+            font-size: 36px;
+            line-height: 57.6px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: flex-start;
+        }
+
+        .author-image {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            font-family: Chronicle Display;
+            font-size: 32px;
+            line-height: 48px;
+            color: #000;
+        }
+
+        .author-info p {
+            color: #000;
+            font-size: 24px;
+            line-height: 36px;
+            font-family: Chronicle Display;
+        }
+
+        .custom-nav {
+            display: flex;
+            gap: 1rem;
+            margin-top: 80px;
+        }
+
+        .custom-nav button {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #555555;
+            background: white;
+            cursor: pointer;
+            transition: background-color 0.5s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-nav button:hover {
+            background-color: #f5f5f5;
+        }
+
+        .custom-nav svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .owl-nav {
+            display: none;
+        }
+
+        .owl-carousel .owl-item img {
+            display: block;
+            width: 64px;
+            height: 64px;
+        }
+
+        .quote-mark img {
+            width: 128px !important;
+            height: 128px !important;
+            transform: scaleX(-1);
+        }
+
+        .testimonial-carousel{
+            overflow: hidden;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="testimonial-header">
+            <h2>From Our Clients.</h2>
+            <p>Here’s what our clients have to say about One Homes.</p>
+            <div class="custom-nav">
+                <button class="prev-btn">
+                <svg width="42" height="24" viewBox="0 0 42 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0.93934 10.9393C0.353553 11.5251 0.353553 12.4749 0.93934 13.0607L10.4853 22.6066C11.0711 23.1924 12.0208 23.1924 12.6066 22.6066C13.1924 22.0208 13.1924 21.0711 12.6066 20.4853L4.12132 12L12.6066 3.51472C13.1924 2.92893 13.1924 1.97919 12.6066 1.3934C12.0208 0.807612 11.0711 0.807612 10.4853 1.3934L0.93934 10.9393ZM2 13.5L42 13.5L42 10.5L2 10.5L2 13.5Z"
+                        fill="#555555" />
+                </svg>
+                </button>
+                <button class="next-btn">
+                    <svg width="42" height="24" viewBox="0 0 42 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M41.0607 13.0607C41.6464 12.4749 41.6464 11.5251 41.0607 10.9393L31.5147 1.3934C30.9289 0.807614 29.9792 0.807614 29.3934 1.3934C28.8076 1.97919 28.8076 2.92893 29.3934 3.51472L37.8787 12L29.3934 20.4853C28.8076 21.0711 28.8076 22.0208 29.3934 22.6066C29.9792 23.1924 30.9289 23.1924 31.5147 22.6066L41.0607 13.0607ZM-1.31134e-07 13.5L40 13.5L40 10.5L1.31134e-07 10.5L-1.31134e-07 13.5Z"
+                            fill="#555555" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="owl-carousel testimonial-carousel">
+            <div class="testimonial-item">
+                <div class="quote-mark">
+                    <img src="https://wp.onehomes.com/wp-content/uploads/2024/11/Vector.svg" alt="">
+                </div>
+                <p class="testimonial-text">Me and my family wanted to invest in Pakistan as we see it as our motherland. One of the things I found attractive about
+                One Homes is that it’s a UK company, so they see things from my point of view. As an overseas Pakistani, you always have
+                some concerns about investing in Pakistan… We liked that it was so transparent and there was a bonding (experience) with
+                people from One Homes from day one.</p>
+                <div class="testimonial-author">
+                    <img src="https://wp.onehomes.com/wp-content/uploads/2024/11/Preshul-testimonial-video-placeholder.webp" alt="Sameer Ali" class="author-image">
+                    <div class="author-info">
+                        <h4>Badar Ahmed</h4>
+                        <p>September, 2024</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <div class="quote-mark">
+                    <img src="https://wp.onehomes.com/wp-content/uploads/2024/11/Vector.svg" alt="">
+                </div>
+                <p class="testimonial-text">Me and my family wanted to invest in Pakistan as we see it as our motherland. One of the things I found attractive about
+                One Homes is that it’s a UK company, so they see things from my point of view. As an overseas Pakistani, you always have
+                some concerns about investing in Pakistan… We liked that it was so transparent and there was a bonding (experience) with
+                people from One Homes from day one.</p>
+                <div class="testimonial-author">
+                    <img src="https://wp.onehomes.com/wp-content/uploads/2024/11/Preshul-testimonial-video-placeholder.webp" alt="Jane Smith" class="author-image">
+                    <div class="author-info">
+                        <h4>Badar Ahmed</h4>
+                        <p>September, 2024</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <div class="quote-mark">
+                    <img src="https://wp.onehomes.com/wp-content/uploads/2024/11/Vector.svg" alt="">
+                </div>
+                <p class="testimonial-text">Me and my family wanted to invest in Pakistan as we see it as our motherland. One of the things I found attractive about
+                One Homes is that it’s a UK company, so they see things from my point of view. As an overseas Pakistani, you always have
+                some concerns about investing in Pakistan… We liked that it was so transparent and there was a bonding (experience) with
+                people from One Homes from day one.</p>
+                <div class="testimonial-author">
+                    <img src="https://wp.onehomes.com/wp-content/uploads/2024/11/Preshul-testimonial-video-placeholder.webp" alt="John Doe" class="author-image">
+                    <div class="author-info">
+                        <h4>Badar Ahmed</h4>
+                        <p>SSeptember, 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var owl = $('.testimonial-carousel').owlCarousel({
+                items: 1,
+                loop: true,
+                margin: 0,
+                // autoplay: true,
+                // autoplayTimeout: 4000,
+                // autoplayHoverPause: true,
+                nav: false,
+                dots: false,
+                smartSpeed: 500,
+                autoWidth: false,
+                center: false
+            });
+
+            // Custom Navigation
+            $('.next-btn').click(function () {
+                owl.trigger('next.owl.carousel');
+            });
+            $('.prev-btn').click(function () {
+                owl.trigger('prev.owl.carousel');
+            });
+        });
+    </script>
+</body>
+
+</html>
